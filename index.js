@@ -1,7 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const path = require("path");
-const generateMarkdown = require("./utils/generateMarkdown")
+
 
 //Array of questions for user input
 
@@ -20,7 +19,7 @@ const questions = [
     type: "checkbox",
     name: "license",
     message: "please select a license"
-    choices: [""]
+    
 },
 {
     type: "input",
@@ -39,16 +38,45 @@ const questions = [
 },
 ];
 
-//Readme.md file
-function writeToFile(fileName, data) {
-    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
-}
-
-//Initializing app
-function init() {
-    inquierer.prompt(questions).then(responses) => {
-        console.log("creating professional README.md file...");
-        writeToFile("./dist.README.md", generateMarkdown({ ...responses}));
-    }
-}
-init();
+ // Generate README content
+ const readmeContent = `
+ # ${projectName}
+ 
+ ## Description
+ ${projectDescription}
+ 
+ ## Table of Contents
+ - [Installation](#installation)
+ - [Usage](#usage)
+ - [License](#license)
+ - [Contributing](#contributing)
+ - [Tests](#tests)
+ 
+ ## Installation
+ ${installationInstructions}
+ 
+ ## Usage
+ ${usageInstructions}
+ 
+ ## License
+ This project is licensed under ${licenseInfo}.
+ 
+ ## Contributing
+ ${contributingGuidelines}
+ 
+ ## Tests
+ ${testInstructions}
+ `;
+ 
+         // Write README content to a file
+         fs.writeFileSync('README.md', readmeContent);
+ 
+         console.log('README.md file has been generated successfully.'); {
+ 
+     } catch (err) {
+         console.error('Error generating README:', err); {
+     }
+ }
+ 
+ // Run the function to generate README
+ generateREADME();
