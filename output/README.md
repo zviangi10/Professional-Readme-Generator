@@ -1,8 +1,8 @@
-# Professional ReadMe
+# Professional README generator
 
 ## Description
 
-generated title of my project
+This app automatically generates professional readmes
 
 ## Table of Contents
 
@@ -13,15 +13,15 @@ generated title of my project
 
 ## Installation
 
-instalation
+Javascript , Node JS
 
 ## Usage
 
-
+N/A
 
 ## Credits
 
-
+N/A
 
 ## License
 
